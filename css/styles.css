@@ -1,0 +1,244 @@
+/* asterisc per aplicar a tot el body*/
+
+* {
+  margin: 10px 0;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: red;
+}
+
+.margen_interno {
+  padding: 5px 10px;
+}
+
+/* primer flex, al pare de tot el body*/
+
+.padre {
+  display: flex;
+  flex-flow: column nowrap; /*nowrap, per tal q s'adapti a la mida que s'establirà*/
+}
+
+/*farem un altre flex a la capçalera per col·locar els elements q la composen*/
+.cabecera {
+  background: url(../img/torii.jpg);
+  background-position: center; /* les 3 opcions de background son x aque estigui centrada i quedi dins del contenidor*/
+  background-attachment: contain;
+  background-size: cover;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.menu {
+  display: flex;
+  /*flex-flow: column nowrap;*/
+  height: 100px;
+  align-items: center; /*aliniem els items del menu al centre, després de declarar altura*/
+}
+
+.logo {
+  flex: 1 1 auto;
+  margin-left: 40px;
+}
+
+.nav {
+  flex: 5 1 auto; /*posem el 5 per tal q les caixes no siguin igual, al reves de 1 1 auto*/
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding-right: 0;
+}
+
+li {
+  display: inline;
+  float: none;
+  font-size: 1em;
+}
+
+.nav li a {
+  padding: 5px 10px;
+}
+
+.social {
+  flex: 1 1 auto;
+}
+
+.social a:hover {
+  color: red;
+}
+
+.nav a:hover {
+  color: red;
+}
+
+.titulo {
+  background: rgba(
+    0,
+    0,
+    0,
+    0.1
+  ); /*fondo del título transparente y con degradado (.1)*/
+  text-align: center;
+}
+
+h1 {
+  font-family: "Akaya Telivigala", cursive;
+  font-size: 2em;
+  letter-spacing: 2px;
+  color: red;
+  opacity: 40%;
+}
+
+.section {
+  background: lightgray;
+  display: flex; /*fem un flex per ordenar els articles + aside */
+}
+
+.articulos {
+  background: lightgray;
+  flex: 2 1 auto;
+  display: flex; /*posem un flex al div articulos per ordenar els articles dins de la caixa section*/
+  flex-flow: row wrap; /*un al costat de l'altre, i quan no hi hagi espai que caigui abaix*/
+}
+
+h3 {
+  color: #000f;
+  font-size: 15px;
+  padding: 10px 12px;
+  margin-top: -90px; /*així fem q pugi el texte cap amunt*/
+}
+
+h2 {
+  font-size: 25px;
+  text-transform: uppercase;
+  padding: 0px 0 10px 12px;
+  color: #fff;
+}
+
+.article img {
+  width: 100%; /*aixi agafa el 100% del contenidor*/
+  height: 250px;
+  display: block; /* x centrar imatges no podem usar align-x: center, per tant display block + margin auto*/
+  margin: auto;
+}
+
+.article {
+  background: whitesmoke;
+  flex: 1 1 40%; /* posem 40% de basis per tal que quedin els articles en dues columnes*/
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin: 10px 10px 0 0;
+  flex: 1 1 45%; /*s'expandeix la caixa x tal q el títol sobre la foto no sobresurti*/
+}
+
+.article a {
+  font-size: 15px;
+  padding: 10px;
+  display: inline-block; /*per tal que sempre quedi a la mateixa posició*/
+}
+
+.navegacion {
+  background: whitesmoke;
+  flex: 1 1 100%;
+  margin: 10px 10px 0 0;
+}
+
+.aside {
+  background: whitesmoke;
+  margin: 10px 5px 10px 0;
+  padding:
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.publicidad {
+  flex: 1 1 40%;
+}
+
+.publicidad img {
+    display: block; /* x centrar imatges no podem usar align-x: center, per tant display block + margin auto*/
+    margin: auto;
+}
+
+h4 {
+  background: darkgray;
+  color: #fff;
+  padding: 10px;
+}
+
+.footer {
+  background: lightgray;
+  align-items: center;
+  margin-top: 10px; /*separem caixa d'articles i footer*/
+}
+
+.pie {
+  background: whitesmoke;
+  text-align: center;
+}
+
+.pie a {
+  font-size: 14px;
+  padding: 0 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.rollover {
+  display: block;
+  width: 100px; /*important indicar l'espai que ocupa el div*/
+  height: 100px;
+  background: url(../img/logo.png) no-repeat;
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+.rollover:hover {
+  background: url(../img/rice.png) no-repeat;
+}
+
+@media screen and (max-width: 1280px) {
+  .section {
+    flex-direction: column; /*per tal que Aside passi abaix quan es fa petita la pantalla*/
+  }
+  .menu {
+    flex-direction: column;
+    height: auto; /*per tal que els divs de les subseccions quedin ben encaixats dins del menu*/
+  }
+  .aside {
+    display: flex;
+    justify-content: center; /*per a que quedi centrat*/
+  }
+
+  h1 {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .articulos {
+    flex-direction: column;
+  }
+  .off {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /*per tal que l'aside es mostri en forma de columna al reduir pantalla*/
+  .aside {
+    flex-direction: column;
+  }
+}
